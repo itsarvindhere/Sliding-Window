@@ -64,6 +64,6 @@ Next, we want to increment both i and j.
 
 Since we are sliding the window to right, that means the first element of previous window will be discarded. In simple words, since next window is [2,3] It means -8 will be discarded from this window and so, we have to discard it from our negative list too.
 
-So, before incrementing i, we can check if the element at i index is the first element of negative list. If yes, then slice the array so that -8 is removed.
+So, before incrementing i, we can check if the element at i index is negative or not. If yes, then slice the array so that first element of neative list is removed.
 
 And this same process repeats till be reach the end of array.
