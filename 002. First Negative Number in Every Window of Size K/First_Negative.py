@@ -1,10 +1,13 @@
+from collections import deque
+
+
 def firstNegative(arr, k):
     output = []
 
     i,j = 0,0
     n = len(arr)
 
-    negatives = []
+    negatives = deque()
     while(j < n):
         #Store the negatives in a list
         if(arr[j] < 0 ): negatives.append(arr[j])
@@ -13,9 +16,9 @@ def firstNegative(arr, k):
         #If window is of size k, then get the solution for that window
         else:
             #Put the first negative number (or zero) in the output for current window
-            output.append(0 if len(negatives) == 0 else negatives[0])
+            output.append(0 if not negatives else negatives[0])
 
-            if(arr[i] < 0): negatives = negatives[1:]
+            if(arr[i] < 0): negatives.popleft()
             i += 1
             j += 1
 
