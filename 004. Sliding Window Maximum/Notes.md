@@ -87,10 +87,10 @@ We are going to slide this window which means i will be incremented to 1. But at
 
 So, deque is not [2,1], i is 1, j is 3
 
-At j, we have 5. Because 5 is bigger than all the elements in deque, it means we no longer need any element in the deque since 5 is bigger than all. Remember above when we said we only keep the useful numbers. Here, as we got a number bigger than all the numbers in deque, then the numbers in deque are of no use now.
+At j, we have 5. Because 5 is bigger than all the elements that previously we put in deque, it means we no longer need any element smaller than 5 in the deque since they are no longer useful. Remember above when we said we only keep the useful numbers. Here, as we got a number bigger than some numbers in deque, then we first remove the smaller numbers from the end of deque and then put the bigger number in deque.
 
 
-So, before pushing 5 to the deque, remove all the numbers that are smaller than 5 from the deque. 
+So, before pushing 5 to the deque, remove all the numbers that are smaller than 5 from the end of deque.
 
         Deque now becomes [5]
 
