@@ -50,7 +50,7 @@ def longestSubstring2(S):
                     i += 1
 
         # Now we can find the max length by finding max of the previous length and current length
-        maxLength = max(maxLength, len(j - i + 1))
+        maxLength = max(maxLength, j - i + 1)
 
         #Increase the size of window
         j += 1
