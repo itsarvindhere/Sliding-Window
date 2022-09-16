@@ -52,3 +52,37 @@ So basically, we want to keep track of not just the odd numbers but also their i
 And so we can use a queue here to keep all the indices in it from left to right as we encounter odd numbers so that to calculate the count, we can simply get the first item in the queue as that will always be the leftmost odd number index of current window.
 
 And as we shrink the window, we will keep checking if the item we are removing from window is an odd number or not. If yes, that means we need to remove the leftmost item from queue as well. 
+
+# ANOTHER WAY OF APPROACHING SUCH PROBLEMS - O(1) SPACE 
+
+Just remember one thing for such problems where we have to find how many subarrays have "exactly" K something. 
+
+	Subarrays with K something = Subarrays with at most K something - Subarrays with at most K-1 something
+	
+At most K means that a subarray should have something <= K. 
+	
+For this problem, since we have to find subarrays with exactly K odd numbers. That means, 
+	
+	Subarrays with exactly K odd numbers  = Subarrays with at most K odd numbers  - Subarrays with at most K-1 odd numbers
+	
+Let us prove it with an example.
+
+		nums = [1,1,2,1,1], k = 3
+		
+So here, what are the subarrays with <= 3 odd number ? i.e., how many subarrays have at most 3 odd numbers?
+
+	[1], [1, 1], [1], [1, 1, 2], [1, 2], [2], [1, 1, 2, 1], [1, 2, 1], [2, 1], [1], [1, 2, 1, 1], [2, 1, 1], [1, 1], [1] => 14 Subarrays
+
+Now, lets see how many subarrays have <= 2 odd numbers i.e., <= K- 1 odd numbers
+	
+	[1], [1, 1], [1], [1, 1, 2], [1, 2], [2],  [1, 2, 1], [2, 1], [1], [2, 1, 1], [1, 1], [1] => 12 Subarrays
+	
+So that means, Subarrays with exactly 3 odd numbers are => 14 - 12 => 2
+
+And to prove this, here are all the subarrays with exactly 3 odd numbers
+	
+		[1,1,2,1] and [1,2,1,1].
+		
+And these are the only ones that are not in the list of subarrays with <= 2 odd numbers. 
+
+We can use this template in many similar problems where we are asked to find how many subarrays have exactly K sum, exactly K odd numbers and so on. And there is little to no change we have to make which makes this solution so damn useful.

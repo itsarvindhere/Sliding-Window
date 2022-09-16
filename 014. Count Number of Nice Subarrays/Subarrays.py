@@ -1,5 +1,6 @@
+# SOLUTION 1 - NOT O(1) SPACE
 from collections import deque
-def numberOfSubarrays(nums, k):
+def numberOfSubarraysSolution1(nums, k):
     subarrayCount = 0
         
     i,j = 0,0
@@ -29,9 +30,38 @@ def numberOfSubarrays(nums, k):
         
     return subarrayCount
 
+# SOLUTION 2 - O(1) SPACE
+#This method finds number of subarrays with at most K odd numbers
+def atMost(nums,k):
+        
+        countOfSubarrays = 0
+        
+        i,j = 0,0
+        n = len(nums)
+        
+        countOfOdds = 0
+        
+        while j < n:
+            if nums[j] % 2 != 0 : countOfOdds += 1
+                
+            if countOfOdds > k:
+                while countOfOdds > k:
+                    if nums[i] % 2 != 0: countOfOdds -= 1
+                    i += 1
+            
+            countOfSubarrays += j - i + 1
+            j += 1
+        
+        return countOfSubarrays
+        
+def numberOfSubarrays(nums, k):
+        return atMost(nums, k) - atMost(nums, k-1)
+
+
+
 nums = [2,2,2,1,2,2,1,2,2,2]
 k = 2
 
-count = numberOfSubarrays(nums,k)
+count = numberOfSubarraysSolution1(nums,k)
 
 print("Number of Nice Subarrays -> ", count)
