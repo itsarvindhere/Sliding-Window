@@ -1,6 +1,3 @@
-from cgitb import small
-
-
 def smallestRange(nums):
     #Initialize the range with maximum values
     range = [-100000, 100000]
