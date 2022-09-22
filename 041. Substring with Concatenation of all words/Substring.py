@@ -1,10 +1,9 @@
-def findSubstring(s, words):
+def findSubstring(s,words):
     output = []
-        
-        
+
     # Count the frequency of each word in words
     dict1 = {}  
-    for word in words: dict1[word] = dict1.get(word,0) + 1     
+    for word in words: dict1[word] = dict1.get(word,0) + 1         
         
     # Length of each word
     n = len(words[0])
@@ -14,8 +13,7 @@ def findSubstring(s, words):
         
     # Sliding Window Pointers
     i,j = 0,0
-        
-        
+
         
     while j < len(s):
         if j - i + 1 < k: j += 1
@@ -23,16 +21,19 @@ def findSubstring(s, words):
             # Here, we got a substring of length = k
             substring = s[i:j+1]
                 
-            # Now, create another map for this one and check all substrings of size = len(words[0])
+            # Now, just copy the dict1 into another dictionary that we will be modifying as we check each substring of size len(words[0])
             # Because we want this map to have same keys and same count as the map for words list
-            dict2 = {}
+            dict2 = dict1.copy()
             start = 0
             while start < len(substring):
                 sub_substr = substring[start: start + n]
-                dict2[sub_substr] = dict2.get(sub_substr, 0) + 1
+                if sub_substr in dict2:
+                    dict2[sub_substr] -= 1
+                    if dict2[sub_substr] == 0: dict2.pop(sub_substr)
                 start += n
-            # If both dictionaries are same, the append the starting index of this window to output
-            if dict1 == dict2: output.append(i)
+                    
+            # If dict2 is empty, that means this substring is valid
+            if not dict2: output.append(i)
 
             i += 1
             j += 1
