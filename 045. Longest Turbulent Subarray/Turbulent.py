@@ -20,8 +20,9 @@ def maxTurbulenceSize(arr):
     # General Sliding Window Template
     while j < n:
             
-        # If previous and current values are same, we need to skip this window so increment starting pointer
-        if arr[j-1] == arr[j]: i += 1
+        # If the first value of the window is same as second value, that means we cannot include both numbers
+        # So skip the first number by pointing the start of window to second number
+        if arr[i] == arr[i+1]: i += 1
             
         # While this condition is true, we can expand the window
         while j + 1 < n and isTurbulent(arr,j): j += 1
