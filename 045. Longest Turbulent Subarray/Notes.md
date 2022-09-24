@@ -43,7 +43,7 @@ And ofcourse, a number in itself is always turbulent. That's why in code, the in
 
 So, we want to see if there are subarrays of size > 1 or not. If yes, we want to find the largest of them. Since first number of an array is already turbulent in itself, we will start checking from the 2nd number (Unless array has only 1 number, in that case we return 1).
 
-In above example, we start from 4. Is 4 > 9? NO. Is 4 < 9? YES. This means, the number that comes after 4 should be < 4. Because we are following this pattern here ->  a < b > c < d > e
+In above example, we start from 4. Is 4 > 9? NO. Is 4 < 9? YES. This means, the number that comes after 4 should be > 4. Because we are following this pattern here ->  a < b > c < d > e
 
 So, for every number, we not only check its previous number but also its next number. In this way, we do not have to keep track of what was the previous comparison sign. 
 
