@@ -69,3 +69,8 @@ What does it mean by right place?
 It means, if  (yj-xj) value is bigger than some values in deque, this means, those values will never be considered. So we can remove all those smaller values before putting  (yj-xj, xj) in the deque.
 
 Again, this is similar to Sliding Window Maximum, where we removed all the smaller values before appending the current value.
+
+
+Here is how our deque looks like - 
+
+![](2022-09-25-16-26-33.png)
