@@ -15,7 +15,7 @@ Explanation: Flip nums[0], then flip nums[2].
 
 # APPROACH USING A QUEUE
 
-We only flips a window if it starts with a 0 because we want the whole array to have only 1s. So we are not concered with 1s here. The main motive is to convert all 0 to 1 (If it is possible).
+We only flip a window if it starts with a 0 because we want the whole array to have only 1s. So we are not concered with 1s here. The main motive is to convert all 0 to 1 (If it is possible).
 
 The brute force way is to check each window and then for each window, if it starts with 0, take each element and flip it. But ofcourse that is not efficient way because we will do repeatitive work.
 
